@@ -14,30 +14,34 @@ const showMenuData = [
   { id: 4, name: 'Football shoes', doc_count: 107 },
 ];
 
-const Menu = ({ showCatMenu, setShowCatMenu }) => {
+const MenuMobile = ({ showCatMenu, setShowCatMenu, setMobileMenu }) => {
   return (
-    <ul className={` hidden items-center gap-8 font-medium text-black md:flex`}>
+    <ul className="absolute top-12 left-0 flex h-[calc(100vh-48px)] w-full flex-col border-t bg-white font-bold text-black md:hidden ">
       {data.map((item) => {
         return (
           <React.Fragment key={item.id}>
             {!!item?.subMenu ? (
               <li
-                className=" relative flex cursor-pointer items-center gap-2"
-                onMouseEnter={() => setShowCatMenu(true)}
-                onMouseLeave={() => setShowCatMenu(false)}
+                className=" relative flex cursor-pointer flex-col border-b py-4 px-5 "
+                onClick={() => setShowCatMenu(!showCatMenu)}
               >
-                {item.name}
-                <BsChevronDown size={14} />
+                <div className="flex items-center justify-between">
+                  {item.name}
+                  <BsChevronDown size={14} />
+                </div>
                 {showCatMenu && (
-                  <ul className="absolute top-6 left-0 min-w-[250px] bg-white px-1 py-1 text-black shadow-md">
+                  <ul className="-mx-5 mt-4 -mb-4 bg-black/20">
                     {showMenuData.map((subMenu) => {
                       return (
                         <Link
                           key={subMenu.id}
-                          onClick={() => setShowCatMenu(false)}
+                          onClick={() => {
+                            setShowCatMenu(false);
+                            setMobileMenu(false);
+                          }}
                           href="/"
                         >
-                          <li className="flex h-12 items-center justify-between rounded-md px-3 hover:bg-black/[0.05] ">
+                          <li className="justify-between border-t py-4 px-8 ">
                             {subMenu.name}
                             <span className="text-xs opacity-50">17</span>
                           </li>
@@ -48,8 +52,10 @@ const Menu = ({ showCatMenu, setShowCatMenu }) => {
                 )}
               </li>
             ) : (
-              <li className="cursor-pointer">
-                <Link href={item?.url}>{item.name}</Link>
+              <li className="border-b py-4 px-5">
+                <Link href={item?.url} onClick={() => setMobileMenu(false)}>
+                  {item.name}
+                </Link>
               </li>
             )}
           </React.Fragment>
@@ -59,4 +65,4 @@ const Menu = ({ showCatMenu, setShowCatMenu }) => {
   );
 };
 
-export default Menu;
+export default MenuMobile;

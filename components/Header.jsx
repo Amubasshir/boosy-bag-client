@@ -3,8 +3,11 @@ import { useState } from 'react';
 import Menu from './Menu';
 import Wrapper from './Wrapper';
 
+import { BiMenuAltRight } from 'react-icons/bi';
 import { BsCart } from 'react-icons/bs';
+import { GrClose } from 'react-icons/gr';
 import { IoMdHeartEmpty } from 'react-icons/io';
+import MenuMobile from './MenuMobile';
 
 const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -25,6 +28,13 @@ const Header = () => {
           />
         </Link>
         <Menu showCatMenu={showCatMenu} setShowCatMenu={setShowCatMenu} />
+        {mobileMenu && (
+          <MenuMobile
+            showCatMenu={showCatMenu}
+            setShowCatMenu={setShowCatMenu}
+            setMobileMenu={setMobileMenu}
+          />
+        )}
 
         <div
           className="
@@ -52,19 +62,19 @@ const Header = () => {
             </div>
           </div>
 
-          {/* <div className="relative flex h-8 w-8 cursor-pointer items-center justify-center rounded-full hover:bg-black/[0.05] md:h-12 md:w-12">
+          <div className="relative -mr-2  flex h-8 w-8 cursor-pointer items-center justify-center rounded-full hover:bg-black/[0.05] md:hidden md:h-12 md:w-12">
             {mobileMenu ? (
               <GrClose
-                className=" text-base"
+                className="text-base"
                 onClick={() => setMobileMenu(false)}
               />
             ) : (
-              <BiMenuAltRIght
-                className=" text-xl"
+              <BiMenuAltRight
+                className="text-xl"
                 onClick={() => setMobileMenu(true)}
               />
             )}
-          </div> */}
+          </div>
         </div>
       </Wrapper>
     </header>
