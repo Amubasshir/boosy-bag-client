@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import Wrapper from './Wrapper';
 
@@ -62,18 +63,38 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex justify-center gap-4 md:justify-start">
-          <div className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white/[0.25] text-black hover:bg-white/[0.5]">
+          <Link
+            href="https://www.facebook.com/mubasshir07/"
+            rel="noopener noreferrer"
+            target="_blank"
+            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white/[0.25] text-black hover:bg-white/[0.5]"
+          >
             <FaFacebookF size={20} />
-          </div>
-          <div className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white/[0.25] text-black hover:bg-white/[0.5]">
+          </Link>
+          <Link
+            href="https://twitter.com/lastmubasshir"
+            rel="noopener noreferrer"
+            target="_blank"
+            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white/[0.25] text-black hover:bg-white/[0.5]"
+          >
             <FaTwitter size={20} />
-          </div>
-          <div className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white/[0.25] text-black hover:bg-white/[0.5]">
+          </Link>
+          <Link
+            href="https://www.linkedin.com/in/mubasshirahmed7/"
+            rel="noopener noreferrer"
+            target="_blank"
+            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white/[0.25] text-black hover:bg-white/[0.5]"
+          >
             <FaYoutube size={20} />
-          </div>
-          <div className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white/[0.25] text-black hover:bg-white/[0.5]">
+          </Link>
+          <Link
+            href="https://github.com/Amubasshir"
+            rel="noopener noreferrer"
+            target="_blank"
+            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white/[0.25] text-black hover:bg-white/[0.5]"
+          >
             <FaInstagram size={20} />
-          </div>
+          </Link>
         </div>
       </Wrapper>
       <Wrapper className="mt-10 flex flex-col justify-between gap-[10px] md:flex-row md:gap-0">
